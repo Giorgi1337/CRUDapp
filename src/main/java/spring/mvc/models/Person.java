@@ -1,6 +1,7 @@
 package spring.mvc.models;
 
 public class Person {
+    public Person() {}
     private int id;
     private String name;
 
