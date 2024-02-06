@@ -13,6 +13,7 @@ import spring.mvc.models.Person;
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
+
     private final PersonDAO personDAO;
 
     @Autowired
