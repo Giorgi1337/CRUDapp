@@ -1,8 +1,10 @@
 package spring.mvc.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import spring.mvc.models.Item;
 import spring.mvc.models.Person;
 import spring.mvc.repositories.PeopleRepository;
 
@@ -40,5 +42,9 @@ public class PeopleService {
     @Transactional
     public void delete(int id) {
         peopleRepository.deleteById(id);
+    }
+
+    public void test() {
+        System.out.println("Testing here with debug. Inside Hibernate Transaction");
     }
 }

@@ -3,6 +3,8 @@ package spring.mvc.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Person")
 public class Person {
@@ -24,6 +26,8 @@ public class Person {
     @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
 
     public Person() {
 
