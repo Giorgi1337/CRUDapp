@@ -2,7 +2,10 @@ package spring.mvc.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -28,6 +31,37 @@ public class Person {
     private String email;
     @OneToMany(mappedBy = "owner")
     private List<Item> items;
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dateOfBirth;
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public Person() {
 
